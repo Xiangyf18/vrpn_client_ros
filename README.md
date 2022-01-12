@@ -26,7 +26,10 @@ Simple  installation tutorial  for this repository.
 mkdir -p  dev_ws/src
 cd dev_ws/src
 git clone https://github.com/Xiangyf18/vrpn_client_ros.git
+vim vrpn_client_ros/config/params.yaml
+# change "192.168.50.88" to your own server IP  
 cd ..
+
 # needed if you have both ros and ros2
 unset  CMAKE_PREFIX_PATH
 source /opt/ros/galactic/setup.bash
