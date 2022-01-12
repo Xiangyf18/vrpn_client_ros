@@ -1,0 +1,5 @@
+<launch>
+    <node name="vrpn_pose" pkg="vrpn_client_ros" exec="vrpn_pose_node.py"  output="screen" respawn="false">
+    <param name="use_sim_time" value="false"/>
+    </node>
+</launch>

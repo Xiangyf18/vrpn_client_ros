@@ -1,0 +1,6 @@
+<launch>
+    <arg name="server" default="localhost"/>
+    <node name="vrpn_client_node" pkg="vrpn_client_ros" exec="vrpn_client_node"  output="screen">
+    <param from="$(find-pkg-share vrpn_client_ros)/config/params.yaml"/>
+    </node>
+</launch>

@@ -8,9 +8,11 @@
   <author email="paul@bovbel.com">Paul Bovbel</author>
   <maintainer email="paul@bovbel.com">Paul Bovbel</maintainer>
   <maintainer email="alexander.karavaev@jetbrains.com">Alexander Karavaev</maintainer>
+  <maintainer email="xiangyf18@mails.tsinghua.edu.cn">Yunfei Xiang</maintainer>
 
   <license>BSD</license>
   <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
 
   <depend>geometry_msgs</depend>
   <depend>tf2_ros</depend>
