@@ -4,6 +4,7 @@ from rclpy.publisher import Publisher
 
 
 from geometry_msgs.msg import PoseStamped, TwistStamped
+from geometry_msgs.msg import Twist
 
 import time
 import math
@@ -14,17 +15,18 @@ from functools import partial
 
 class VrpnPose(Node):
     def __init__(self):
-        prefix = 'vrpn_client_node'
-        postfix = 'pose'
         super().__init__('VrpnPose')
         self.transfer = {}
         # TODO: in ros2 ,the arg for 'rclpy.spin' is the whole node !
 
-        # self.ros_spin_thread = threading.Thread(target=rospy.spin)
-        # self.ros_spin_thread.setDaemon(True)
-        # self.ros_spin_thread.start()
+        self.loop_thread = threading.Thread(target=self.main_task)
+        self.loop_thread.setDaemon(True)
+        self.loop_thread.start()
 
-        while not rclpy.ok():
+    def main_task(self):
+        prefix = 'vrpn_client_node'
+        postfix = 'pose'
+        while rclpy.ok():
             topic_list = self.get_topic_names_and_types()
             for topic in topic_list:
                 vrpn_topic_name: str = topic[0]
