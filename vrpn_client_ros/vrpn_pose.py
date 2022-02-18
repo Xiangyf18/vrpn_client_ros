@@ -36,7 +36,9 @@ class VrpnPose(Node):
 
                     if car_id not in self.transfer.keys():
                         sub = self.create_subscription(PoseStamped, vrpn_topic_name,
-                                                       partial(self.transfer_callback, args=(car_id,)))
+                                                       partial(self.transfer_callback,
+                                                               args=(car_id,)),
+                                                       qos_profile=rclpy.qos.qos_profile_sensor_data)
                         pub = self.create_publisher(TwistStamped, '/'+car_id+'/pose')
                         self.transfer[car_id] = {'sub': sub, 'pub': pub}
             print(self.transfer)
